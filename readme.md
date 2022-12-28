@@ -7,7 +7,7 @@ If you have a weak computer, open the .py file in a text editor and delete the l
 print("For lower than 5 stars: ", end="")
 frequencyCalculator((len(frequency) - 1), 60000)
 ```
-Since it goes through the entire frequency list otherwise.
+Since it goes through almost the entire frequency list otherwise.
 ## Tutorial on running the python file
 ### Step 1: Opening the command prompt
 One way to run the .py file is to open the command prompt in the directory where your files are, you can do this by clicking on the path in the file explorer and typing in "cmd" and then hitting enter.<br>
