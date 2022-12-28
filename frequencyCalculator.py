@@ -9,7 +9,7 @@ data = json.load(f)
 # index 0 = word
 # index 1 = "freq"
 # index 2 = frequency number
-# Download the frequency file from https://dicts.migaku.io/ja/frequency.json
+# Download the frequency file from http://dicts.migaku.io/ja/frequency_lists/Netflix.json
 frequencyFileName = input("What is the file name of the Netflix frequency file? (e.g. frequency.json) ")
 fr = open(frequencyFileName, encoding="UTF-8")
 frequency = json.load(fr)
