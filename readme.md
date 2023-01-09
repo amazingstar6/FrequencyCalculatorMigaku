@@ -1,4 +1,4 @@
-<i>I still need to improve the fact that the frequency files contain the kanji and the hiragan/katakan</i>
+<i>I still need to improve the fact that the frequency files contain the kanji AND the hiragan/katakana form, now it's only checking the kanji, which decreases the amount of known words for frequency files like the Visual Novel where they put words like する in kanji. It also still ignores the fact if a word is known or seen.</i>
 
 This python scripts calculates the percentage of words you know compared with the words in the specified frequency file.
 # Setup
