@@ -1,4 +1,4 @@
-This python scripts calculates the percentage of words you know compared with the words in the specified frequency file.
+This python scripts calculates the percentage of words you know from your Migaku Backup file compared with the words in the specified frequency file.
 # Setup
 Download this repository (code -> Download ZIP) and export your Migaku Known Words file to the directory where you extracted this repository AND rename it to "Words.json".<br>
 To run the script, run main.py
