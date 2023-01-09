@@ -24,9 +24,11 @@ Which frequency file would you like to use to compare with your known words?
 stars = 0
 level = 0
 if frequencyFileNumber < 7:
-    stars_string = int(input("Up to how many stars do you want to analyze? (e.g. \"4\") "))
+    stars = int(input("Up to how many stars do you want to analyze? (e.g. \"4\") "))
 elif frequencyFileNumber == 7 or frequencyFileNumber == 8:
     level = int(input("Up to which level do you want to analyze? (e.g. \"3\") "))
+elif frequencyFileNumber == 9:
+    pass
 else:
     raise Exception("Choose a better number for the stars or levels!")
 

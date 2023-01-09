@@ -49,7 +49,7 @@ def main(file_words, file_frequency, stars):
         if word_data in frequency_list[begin:end]:
             known_words_list.append(word_data)
             count += 1
-    print(str(round((count / (end - begin) * 100), 2)) + " %. You know " + str(
+    print((str(round((count / (end - begin) * 100), 2))).ljust(5) + " %. You know " + str(
         count) + " words from the most common " + str(begin) + "-" + str(end))
     # writes to the file unknownWords.html all the words you are in the frequency area that you do NOT know
     unknown_words_file = open("Netflix.txt", "w", encoding="UTF-8")
