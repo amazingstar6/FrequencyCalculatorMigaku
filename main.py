@@ -13,7 +13,7 @@ Which frequency file would you like to use to compare with your known words?
 4. Slife of Life (to be improved)
 5. Shonen (to be improved)
 6. Visual Novel (to be improved)
-7. JLPT
+7. JLPT (to be improved)
 8. Wanikani (Not yet implemented)
 9. Dialect (Not yet implemented)
 """))
