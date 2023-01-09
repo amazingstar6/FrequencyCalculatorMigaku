@@ -2,31 +2,34 @@ import codecs
 import json
 from Netflix import netflix
 from JLPT import jlpt
-from WaniKani import Wanikani
+from WaniKani import wanikani
+from Dialect import dialect
 
 frequencyFileNumber = int(input("""
-After execution, there will be a text file generated with the corresponding name of the frequency file(s) with all the words that weren't in your known words list.
+After execution, there will be a text file generated with the corresponding name of the frequency file(s)
+with all the words that weren't in your known words list.
 
 Which frequency file would you like to use to compare with your known words?
 1. Narou
 2. Netflix
 3. Novel 5k
-4. Slife of Life
+4. Slice of Life
 5. Shonen
 6. Visual Novel
 7. JLPT
 8. Wanikani
-9. Dialect (Not yet implemented)
+9. Dialect
 """))
 
+stars = 0
+level = 0
 if frequencyFileNumber < 7:
-    stars = int(input("Up to how many stars do you want to analyze? (e.g. \"4\") "))
+    stars_string = int(input("Up to how many stars do you want to analyze? (e.g. \"4\") "))
 elif frequencyFileNumber == 7 or frequencyFileNumber == 8:
     level = int(input("Up to which level do you want to analyze? (e.g. \"3\") "))
-elif not frequencyFileNumber > 0 or not frequencyFileNumber < 8:
-    raise Exception("Choose a better number!")
+else:
+    raise Exception("Choose a better number for the stars or levels!")
 
-# fileNameFrequency = input("What is the file name of the frequency list? (e.g. \"Netflix.json\") ")
 if frequencyFileNumber == 1:
     fileNameFrequency = "Narou.json"
 elif frequencyFileNumber == 2:
@@ -43,8 +46,11 @@ elif frequencyFileNumber == 7:
     fileNameFrequency = "JLPT.json"
 elif frequencyFileNumber == 8:
     fileNameFrequency = "Wanikani.json"
+elif frequencyFileNumber == 9:
+    fileNameFrequency = "Dialect.json"
+else:
+    raise Exception("Choose an actual number that is displayed in the help menu!")
 
-# fileNameWords = input("What is the file name of your Migaku Known Words list? (e.g. \"Words.json\") ")
 fileNameWords = "Words.json"
 
 dataFrequency = json.load(codecs.open(fileNameFrequency, 'r', 'utf-8-sig'))
@@ -57,4 +63,6 @@ if frequencyFileNumber < 7:
 if frequencyFileNumber == 7:
     jlpt(dataWords, dataFrequency, level)
 if frequencyFileNumber == 8:
-    Wanikani(dataWords, dataFrequency, level)
+    wanikani(dataWords, dataFrequency, level)
+if frequencyFileNumber == 9:
+    dialect(dataWords, dataFrequency)

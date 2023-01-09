@@ -1,24 +1,24 @@
-import codecs
-import json
-from ConvertListtoDic import Convert
+from ConvertListtoDic import convert
 
-def netflix(fileWords, fileFrequency, stars = 6):
-    main(fileWords, fileFrequency, 1)
+
+def netflix(file_words, file_frequency, stars=6):
+    main(file_words, file_frequency, 1)
     if stars > 1:
-        main(fileWords, fileFrequency, 2)
+        main(file_words, file_frequency, 2)
     if stars > 2:
-        main(fileWords, fileFrequency, 3)
+        main(file_words, file_frequency, 3)
     if stars > 3:
-        main(fileWords, fileFrequency, 4)
+        main(file_words, file_frequency, 4)
     if stars > 4:
-        main(fileWords, fileFrequency, 5)
+        main(file_words, file_frequency, 5)
     if stars > 5:
-        main(fileWords, fileFrequency, 6)
+        main(file_words, file_frequency, 6)
 
-def main(fileWords, fileFrequency, stars):
-    frequencyList = []
-    for i in fileFrequency:
-        frequencyList.append(i[0])
+
+def main(file_words, file_frequency, stars):
+    frequency_list = []
+    for i in file_frequency:
+        frequency_list.append(i[0])
     begin = 0
     end = 0
     if stars < 1 or stars > 6:
@@ -40,20 +40,20 @@ def main(fileWords, fileFrequency, stars):
         end = 60000
     elif stars == 6:
         begin = 60000
-        end = len(frequencyList) - 1
-    knownWordsList = []
+        end = len(frequency_list) - 1
+    known_words_list = []
     count = 0
-    dictionaryNetflix = Convert(fileFrequency)   
-    for i in fileWords:
-        wordData = (i[0].split("◴"))[0]
-        if wordData in frequencyList[begin:end]:
-            knownWordsList.append(wordData)
+    convert(file_frequency)
+    for i in file_words:
+        word_data = (i[0].split("◴"))[0]
+        if word_data in frequency_list[begin:end]:
+            known_words_list.append(word_data)
             count += 1
-    print(str(round((count/(end-begin) * 100), 2)) + " %. You know " + str(count) + " words from the most common " + str(begin) + "-" + str(end))
+    print(str(round((count / (end - begin) * 100), 2)) + " %. You know " + str(
+        count) + " words from the most common " + str(begin) + "-" + str(end))
     # writes to the file unknownWords.html all the words you are in the frequency area that you do NOT know
-    unknownWordsFile = open("Netflix.txt", "w", encoding="UTF-8")
-    listfreq = frequencyList[begin:end]
-    unknownWordsList = (set(listfreq) - set(knownWordsList))
-    for i in unknownWordsList:
-        unknownWordsFile.write(i + "\n")
-
+    unknown_words_file = open("Netflix.txt", "w", encoding="UTF-8")
+    list_frequency = frequency_list[begin:end]
+    unknown_words_list = (set(list_frequency) - set(known_words_list))
+    for i in unknown_words_list:
+        unknown_words_file.write(i + "\n")
